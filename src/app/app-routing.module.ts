@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NoteListComponent } from './components/note-list.component';
-import { NoteCreateComponent } from './components/note-create.component';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LandingComponent } from './landing/landing.component';
 const routes: Routes = [
-  { path: '', redirectTo: 'notes', pathMatch: 'full' },
-  { path: 'notes', component: NoteListComponent },
-  { path: 'notes/create', component: NoteCreateComponent },
+  { path: '', component: LandingComponent },
+  { path: 'authenticate', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
   // Add more routes for editing, deleting, or any additional functionality
 ];
 
