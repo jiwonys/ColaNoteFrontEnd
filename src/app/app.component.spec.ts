@@ -21,3 +21,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('ColaNoteFrontEnd app is running!');
   });
 });
+//daily commit for nothing lol
