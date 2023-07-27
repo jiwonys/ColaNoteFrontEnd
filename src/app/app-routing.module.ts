@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
-import { StickyNotesComponent } from './sticky-notes/sticky-notes.component';
+import { BoardComponent } from './board/board.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'authenticate', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'sticky', component: StickyNotesComponent}
+  { path: 'board', component: BoardComponent}
+
   // Add more routes for editing, deleting, or any additional functionality
 ];
 

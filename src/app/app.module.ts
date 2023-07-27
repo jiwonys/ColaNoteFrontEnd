@@ -11,7 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { StickyNotesComponent } from './sticky-notes/sticky-notes.component';
 import { MatCardModule } from '@angular/material/card';
-import { DragDropModule } from '@angular/cdk/drag-drop'; // Import Drag&Drop module
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BoardComponent } from './board/board.component'; // Import Drag&Drop module
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop'; // Import Drag&Drop mod
     LoginComponent,
     RegisterComponent,
     LandingComponent,
-    StickyNotesComponent
+    StickyNotesComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +33,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop'; // Import Drag&Drop mod
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    DragDropModule
+    DragDropModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
