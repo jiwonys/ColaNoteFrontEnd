@@ -1,18 +1,29 @@
+
 .landing-container {
+  height : 90vh;
   text-align: center;
   padding: 40px;
+  align-items: left; /* Center vertically */
+
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 53px;
   color: #333;
 }
 
 p {
-  font-size: 18px;
+  font-size: 12px;
   color: #666;
 }
-
 
 button {
   padding: 10px 20px;
@@ -23,3 +34,30 @@ button {
   cursor: pointer;
 }
 
+.mat-mdc-raised-button.registerButton {
+  background-color: royalblue; /* Replace with your desired background color */
+  color: #fff; /* Replace with your desired text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: px;
+  cursor: pointer;
+
+}
+
+.mat-mdc-raised-button.loginButton {
+  background-color: royalblue; /* Replace with your desired background color */
+  color: #fff; /* Replace with your desired text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: grid;
+  gap: 20px; /* Adjust the value to set the desired space between buttons */
+  justify-content: center; /* Center the buttons horizontally */
+  grid-template-columns: auto auto; /* Creates two columns of equal width for the buttons */
+}
