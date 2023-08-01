@@ -6,13 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StickyNoteService {
-  private apiUrl = `localhost:8080/api/v1/boards/getboardbyid/1`;
+  private apiUrl = `http://localhost:8080/api/v1/boards`;
+  private token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) { }
 
-  getStickyNotes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+
+  createStickyNote(note: any, boardId: number): Observable<any> {
+    const url = `${this.apiUrl}/${boardId}/note`;
+    return this.http.post<any>(url, note);
   }
 
+  updateStickyNote(note: any, boardId: number, noteId: number): Observable<any> {
+    const url = `${this.apiUrl}/${boardId}/note/${noteId}`;
+    return this.http.put<any>(url, note);
+  }
 
+  getStickyNotes(boardId: number, noteId: number): Observable<any> {
+    const url = 'http://localhost:8080/api/v1/boards/getboardbyid/1';
+    return this.http.get<any>(url);
+  }
 }
+

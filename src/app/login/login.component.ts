@@ -14,8 +14,6 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   login() {
-      alert("hello");
-
     const body = { email: this.email, password: this.password };
     this.http.post('http://localhost:8080/api/v1/auth/authenticate', body)
       .subscribe((response: any) => {
@@ -24,9 +22,10 @@ export class LoginComponent {
         // Store the token in local storage or a cookie for future API requests
         localStorage.setItem('token', token);
         // Redirect to the desired page after successful login
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/board']);
       }, (error: any) => {
         console.error('Login failed:', error);
+        alert("login has failed, please check your credentials");
         // Handle login error, e.g., display error message to the user
       });
   }
