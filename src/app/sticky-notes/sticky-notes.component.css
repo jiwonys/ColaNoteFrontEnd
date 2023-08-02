@@ -1,0 +1,9 @@
+.sticky-note {
+  cursor: move;
+  width: 200px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: primary;
+  border-radius: 5px;
+}

@@ -1,0 +1,20 @@
+<div class="sticky-note-container">
+  <div *ngFor="let note of stickyNotes" class="sticky-note" cdkDrag (cdkDragEnded)="onPositionChange($event, note)">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ note.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ note.content }}</p>
+        <div>
+          <label>X-axis:</label>
+          <input type="number" [(ngModel)]="note.xaxis" (blur)="updateStickyNotePosition(note)">
+        </div>
+        <div>
+          <label>Y-axis:</label>
+          <input type="number" [(ngModel)]="note.yaxis" (blur)="updateStickyNotePosition(note)">
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.example-button-row {
+  display: flex;
+  justify-content: left;
+  width: 100vw;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.sticky-note-container{
+  height: 90vh;
+  max-width: 600px;
+}
