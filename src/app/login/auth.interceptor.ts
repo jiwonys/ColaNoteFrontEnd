@@ -11,6 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (request.url.includes('/api/v1/auth/')) {
       return next.handle(request);
     }
+    //afsdfds
 
     // Get the token from localStorage
     const token = localStorage.getItem('token');
