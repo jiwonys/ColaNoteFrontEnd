@@ -22,8 +22,8 @@ export class StickyNotesComponent implements OnInit {
 
   loadStickyNotes() {
   alert("loading StickyNotes");
-    this.stickyNoteService.getStickyNotes(1, 1).subscribe((notes) => {
-      this.stickyNotes = notes.notes;
+    this.stickyNoteService.getStickyNotes(1).subscribe((board) => {
+      this.stickyNotes = board.notes;
       console.log(this.stickyNotes);
     });
   }
@@ -34,6 +34,7 @@ export class StickyNotesComponent implements OnInit {
       id : this.id,
       title: this.title,
       content: this.content,
+
       xaxis: 0, // Default x-axis position
       yaxis: 0, // Default y-axis position
     };

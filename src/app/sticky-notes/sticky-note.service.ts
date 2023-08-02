@@ -22,8 +22,8 @@ export class StickyNoteService {
     return this.http.put<any>(url, note);
   }
 
-  getStickyNotes(boardId: number, noteId: number): Observable<any> {
-    const url = 'http://localhost:8080/api/v1/boards/getboardbyid/1';
+  getStickyNotes(boardId: number): Observable<any> {
+    const url = 'http://localhost:8080/api/v1/boards/getboardbyid/'+ boardId;
     return this.http.get<any>(url);
   }
 }
