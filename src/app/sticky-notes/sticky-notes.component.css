@@ -1,9 +1,21 @@
-.sticky-note {
+.sticky-note-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sticky {
   cursor: move;
   width: 200px;
-  height: 200px;
-  padding: 10px;
+  height: 400px;
+  padding: 1px;
   border: 1px solid #ccc;
   background-color: primary;
   border-radius: 5px;
+}
+
+.screen-container {
+  position: relative; /* Important for cdkDragBoundary to work */
+  width: 100vh;
+  height: 100vh; /* Or set a fixed height for the container */
+  overflow: hidden; /* This ensures the sticky notes don't go outside the container */
 }

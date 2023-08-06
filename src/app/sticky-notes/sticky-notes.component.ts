@@ -11,7 +11,7 @@ export class StickyNotesComponent implements OnInit {
 
   @Input() id: number = -1;
   @Input() title: string = '';
-  @Input() content: string = '';
+  @Input() info: string = '';
   @Output() positionChange = new EventEmitter<{ x: number, y: number }>();
 
   constructor(private stickyNoteService: StickyNoteService) { }
@@ -21,7 +21,6 @@ export class StickyNotesComponent implements OnInit {
   }
 
   loadStickyNotes() {
-  alert("loading StickyNotes");
     this.stickyNoteService.getStickyNotes(1).subscribe((board) => {
       this.stickyNotes = board.notes;
       console.log(this.stickyNotes);
@@ -33,7 +32,7 @@ export class StickyNotesComponent implements OnInit {
     const newNote = {
       id : this.id,
       title: this.title,
-      content: this.content,
+      info: this.info,
 
       xaxis: 0, // Default x-axis position
       yaxis: 0, // Default y-axis position
@@ -44,7 +43,8 @@ export class StickyNotesComponent implements OnInit {
     });
   }
 
-  updateStickyNotePosition(note: any ) {
+  updateStickyNote(note: any ) {
+  alert("Making changes" + note.title + note.info);
     this.stickyNoteService.updateStickyNote(note,1 ,note.id).subscribe(() => {
       // Update successful, do something if needed
     });
@@ -55,6 +55,6 @@ export class StickyNotesComponent implements OnInit {
     note.xaxis = x;
     note.yaxis = y;
     this.positionChange.emit({ x, y }); // Emit the new position to update the backend
-    this.updateStickyNotePosition(note); // Update the sticky note position in the backend
+    this.updateStickyNote(note); // Update the sticky note position in the backend
   }
 }
