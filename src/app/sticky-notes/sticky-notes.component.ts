@@ -44,9 +44,9 @@ export class StickyNotesComponent implements OnInit {
   }
 
   updateStickyNote(note: any ) {
-  alert("Making changes" + note.title + note.info);
+//   alert("Making changes" + note.title + note.info);
     this.stickyNoteService.updateStickyNote(note,1 ,note.id).subscribe(() => {
-      // Update successful, do something if needed
+//       alert("a request has been sent with the information of note title:"  + note.title + "and note info" + note.info)
     });
   }
 
@@ -54,7 +54,6 @@ export class StickyNotesComponent implements OnInit {
     const { x, y } = event.source.getFreeDragPosition(); // Get the new position of the sticky note
     note.xaxis = x;
     note.yaxis = y;
-    this.positionChange.emit({ x, y }); // Emit the new position to update the backend
     this.updateStickyNote(note); // Update the sticky note position in the backend
   }
 }

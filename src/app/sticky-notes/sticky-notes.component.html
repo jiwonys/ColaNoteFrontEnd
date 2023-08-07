@@ -1,18 +1,18 @@
 <div class="sticky-note-container">
-  <div *ngFor="let note of stickyNotes" class="sticky-note" cdkDrag
-       [cdkDragFreeDragPosition]="{x: note.xaxis, y: note.yaxis}"
-       (cdkDragEnded)="onPositionChange($event, note)">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <input type="text" [(ngModel)]="note.title" (blur)="updateStickyNote(note)">
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          <textarea [(ngModel)]="note.info" (blur)="updateStickyNote(note)"></textarea>
-        </p>
-      </mat-card-content>
-    </mat-card>
+    <div *ngFor="let note of stickyNotes" class="sticky-note" cdkDrag
+         [ngStyle]="{ 'top.px': note.yaxis, 'left.px': note.xaxis }"
+         (cdkDragEnded)="onPositionChange($event, note)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <input type="text" [(ngModel)]="note.title" (blur)="updateStickyNote(note)">
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            <textarea [(ngModel)]="note.info" (blur)="updateStickyNote(note)"></textarea>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-</div>
