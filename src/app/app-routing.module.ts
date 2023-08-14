@@ -4,13 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 import { BoardComponent } from './board/board.component';
-
+import {StickyNotesComponent} from './sticky-notes/sticky-notes.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'authenticate', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'board', component: BoardComponent}
+  { path: 'board', component: BoardComponent},
 
   // Add more routes for editing, deleting, or any additional functionality
 ];

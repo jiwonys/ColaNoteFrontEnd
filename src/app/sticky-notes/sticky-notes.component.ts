@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { StickyNoteService } from './sticky-note.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-sticky-notes',
@@ -54,6 +55,7 @@ export class StickyNotesComponent implements OnInit {
     const { x, y } = event.source.getFreeDragPosition(); // Get the new position of the sticky note
     note.xaxis = x;
     note.yaxis = y;
+    alert("note change position to: " + x + "," + y);
     this.updateStickyNote(note); // Update the sticky note position in the backend
   }
 }

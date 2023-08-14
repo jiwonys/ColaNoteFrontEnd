@@ -1,17 +1,25 @@
-.sticky {
-  cursor: move;
+.sticky-note {
+  position : relative;
   width: 200px;
-  height: 400px;
-  padding: 1px;
+  height: 100px;
   border: 1px solid #ccc;
-  background-color: primary;
-  border-radius: 5px;
+  background-color: red;
 }
 
 
 .sticky-note-container {
   position: relative;
   height: 99vh;
-  width: 1900px;
-  border: 2px dashed #333; /* Border style for the draggable area */
+  width: 99.6vw;
+  border: 2px dashed #333;
+}
+
+.title{
+  width: 200;
+  height: 200;
+}
+
+.info{
+  width: 400;
+  heigh: 600;
 }
