@@ -5,13 +5,11 @@
   border: 1px solid #ccc;
   background-color: red;
 }
-
-
 .sticky-note-container {
-  position: relative;
-  height: 99vh;
-  width: 99.6vw;
-  border: 2px dashed #333;
+  height: calc(100vh - 10px);
+  width: calc(100vw - 10px);
+  border: 4px dashed #9ABDDC;
+  background-size: 100% auto;
 }
 
 .title{
@@ -21,5 +19,5 @@
 
 .info{
   width: 400;
-  heigh: 600;
+  height: 600;
 }
