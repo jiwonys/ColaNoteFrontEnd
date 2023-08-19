@@ -94,13 +94,20 @@ export class StickyNotesComponent implements OnInit {
 
   dragEnd(event: CdkDragEnd, note: any) {
 
-    console.log(this.getPosition(note));
+    var dropP = "Drop Point: ";
+    var eventDist = "Event Distance: ";
 
-    console.log(event, note.title);
+    console.log(dropP, event.dropPoint);
+    console.log(eventDist, event.distance);
+
+    const { x : dropX, y : dropY } = event.dropPoint;
+
     const { x : distX, y : distY } = event.distance;
-    console.log(note.xaxis + distX, note.yaxis + distY);
-    note.xaxis += distX;
-    note.yaxis += distY;
+
+    console.log(distX - dropX, distY - dropY);
+
+//     note.xaxis = distX + ;
+//     note.yaxis = distY;
 
    // this.updateStickyNote(note);
   }

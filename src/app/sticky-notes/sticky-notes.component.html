@@ -2,7 +2,7 @@
 
     <div *ngFor="let note of stickyNotes" class="sticky-note" cdkDragBoundary=".sticky-note-container"
          cdkDrag
-         [ngStyle]="{ 'top.px': note.yaxis+100, 'left.px': note.xaxis+50 }"
+         [ngStyle]="{ 'top.px': note.yaxis, 'left.px': note.xaxis }"
          (cdkDragEnded)="dragEnd($event, note)">
       <mat-card>
         <mat-card-header>

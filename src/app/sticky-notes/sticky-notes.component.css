@@ -6,9 +6,8 @@
   background-color: red;
 }
 .sticky-note-container {
-  height: calc(100vh - 10px);
-  width: calc(100vw - 10px);
-  border: 4px dashed #9ABDDC;
+  height: 100vh;
+  width: 100vw;
   background-size: 100% auto;
 }
 
