@@ -61,27 +61,27 @@ export class StickyNotesComponent implements OnInit {
   console.log(event.event.clientX);
   console.log(event.event.clientY);
 
-    this.mouseClickX = event.event.clientX - note.xaxis;
-    this.mouseClickY = event.event.clientY - note.yaxis;
+    this.mouseClickX = note.xaxis;
+    this.mouseClickY = note.yaxis;
     this.noteX = note.xaxis;
     this.noteY = note.yaxis;
   }
 
   onPositionChange(event: any, note: any) {
   console.log(event);
-      const dropPoint = event.dropPoint;
+      const distance = event.distance;
           const stickyNoteWidth = 200; // The width of your sticky note
           const stickyNoteHeight = 100; // The height of your sticky note
 
           // Calculate the new x and y positions based on the mouse position
-          const newX = dropPoint.x;
-          const newY = dropPoint.y;
+          const newX = distance.x;
+          const newY = distance.y;
 
           // Update the noteCopy object with the new position
           this.noteCopy = { ...note };
 
-          this.noteCopy.xaxis = newX ;
-          this.noteCopy.yaxis = newY ;
+          this.noteCopy.xaxis = (newX + this.mouseClickX) ;
+          this.noteCopy.yaxis = (newY + this.mouseClickY) ;
 
           this.updateStickyNote(this.noteCopy); // Update the sticky note position in the backend
   }
