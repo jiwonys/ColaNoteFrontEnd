@@ -14,6 +14,9 @@ export class StickyNotesComponent implements OnInit {
   @Input() title: string = '';
   @Input() info: string = '';
   @Output() positionChange = new EventEmitter<{ x: number, y: number }>();
+  noteX : number = 0;
+  noteY : number = 0;
+  positionsLoaded: boolean = false;
 
   constructor(private stickyNoteService: StickyNoteService) { }
 
@@ -46,16 +49,26 @@ export class StickyNotesComponent implements OnInit {
 
   updateStickyNote(note: any ) {
 //   alert("Making changes" + note.title + note.info);
+
     this.stickyNoteService.updateStickyNote(note,1 ,note.id).subscribe(() => {
 //       alert("a request has been sent with the information of note title:"  + note.title + "and note info" + note.info)
     });
   }
+  positionStartChange(event:any, note:any){
+    this.noteX = note.xaxis;
+    this.noteY = note.yaxis;
+    console.log(this.noteX);
+    console.log(this.noteY);
+  }
 
   onPositionChange(event: any, note: any) {
-    const { x, y } = event.source.getFreeDragPosition(); // Get the new position of the sticky note
-    note.xaxis = x;
-    note.yaxis = y;
-    alert("note change position to: " + x + "," + y);
+    const distance = event.distance;
+    console.log(event);
+    note.xaxis += distance.x;
+    note.yaxis += distance.y;
     this.updateStickyNote(note); // Update the sticky note position in the backend
+
+
   }
+
 }
