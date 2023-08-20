@@ -15,6 +15,7 @@ import { BoardComponent } from './board/board.component'; // Import Drag&Drop mo
 import {MatIconModule} from '@angular/material/icon';
 import { AuthInterceptor } from './login/auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatCardModule,
     DragDropModule,
     MatIconModule,
+    MatSidenavModule,
 
   ],
   providers: [

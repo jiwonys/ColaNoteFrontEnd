@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { StickyNoteService } from './sticky-note.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sticky-notes',
@@ -18,6 +19,8 @@ export class StickyNotesComponent implements OnInit {
   noteY : number = 0;
   mouseClickX: number = 0;
   mouseClickY: number = 0;
+  board_id: number = 1;
+
 
   positionsLoaded: boolean = false;
   noteCopy : any;
@@ -28,7 +31,7 @@ export class StickyNotesComponent implements OnInit {
   }
 
   loadStickyNotes() {
-    this.stickyNoteService.getStickyNotes(1).subscribe((board) => {
+    this.stickyNoteService.getStickyNotes(this.board_id).subscribe((board) => {
       this.stickyNotes = board.notes;
     });
   }
@@ -50,16 +53,14 @@ export class StickyNotesComponent implements OnInit {
   }
 
   updateStickyNote(note: any ) {
-//   alert("Making changes" + note.title + note.info);
-
     this.stickyNoteService.updateStickyNote(note,1 ,note.id).subscribe(() => {
-//       alert("a request has been sent with the information of note title:"  + note.title + "and note info" + note.info)
+    console.log("successful");
     });
   }
   positionStartChange(event:any, note:any){
-  console.log(event);
-  console.log(event.event.clientX);
-  console.log(event.event.clientY);
+  //console.log(event);
+  //console.log(event.event.clientX);
+  //console.log(event.event.clientY);
 
     this.mouseClickX = note.xaxis;
     this.mouseClickY = note.yaxis;
@@ -68,7 +69,7 @@ export class StickyNotesComponent implements OnInit {
   }
 
   onPositionChange(event: any, note: any) {
-  console.log(event);
+  //console.log(event);
       const distance = event.distance;
           const stickyNoteWidth = 200; // The width of your sticky note
           const stickyNoteHeight = 100; // The height of your sticky note
@@ -80,8 +81,20 @@ export class StickyNotesComponent implements OnInit {
           // Update the noteCopy object with the new position
           this.noteCopy = { ...note };
 
-          this.noteCopy.xaxis = (newX + this.mouseClickX) ;
-          this.noteCopy.yaxis = (newY + this.mouseClickY) ;
+          if(newX + this.mouseClickX < 0) {
+            this.noteCopy.xaxis = 0;
+          }else{
+            this.noteCopy.xaxis = (newX + this.mouseClickX) ;
+
+          }
+
+          if(newY + this.mouseClickY < 0) {
+            this.noteCopy.yaxis = 0;
+          }else{
+            this.noteCopy.yaxis = (newY + this.mouseClickY) ;
+
+          }
+
 
           this.updateStickyNote(this.noteCopy); // Update the sticky note position in the backend
   }

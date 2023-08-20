@@ -10,3 +10,18 @@
   height: 100vh;
   position: relative;
 }
+
+.side-nav.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+
+.mat-sidenav {
+  width:300px;
+
+}
