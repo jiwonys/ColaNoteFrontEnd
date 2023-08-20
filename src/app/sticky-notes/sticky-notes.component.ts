@@ -2,6 +2,10 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { StickyNoteService } from './sticky-note.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-sticky-notes',
@@ -98,5 +102,17 @@ export class StickyNotesComponent implements OnInit {
 
           this.updateStickyNote(this.noteCopy); // Update the sticky note position in the backend
   }
+
+    delete(note: any) {
+      this.stickyNoteService.deleteNote(this.board_id, note.id).subscribe(() => {
+         // Find the index of the deleted note in the stickyNotes array
+         const index = this.stickyNotes.findIndex(stickyNote => stickyNote.id === note.id);
+         if (index !== -1) {
+           this.stickyNotes.splice(index, 1);
+         }
+         });
+
+    }
+
 
 }
