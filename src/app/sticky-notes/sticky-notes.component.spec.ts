@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StickyNotesComponent } from './sticky-notes.component';
 
 describe('StickyNotesComponent', () => {
   let component: StickyNotesComponent;

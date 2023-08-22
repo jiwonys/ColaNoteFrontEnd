@@ -1,3 +1,8 @@
+<div class="createButton">
+  <button mat-button (click) = "createNote()" color="#ADD8E6">Create</button>
+</div>
+
+
 <mat-sidenav-container class="side-nav-container"   (backdropClick)="sidenav.close()">
   <mat-sidenav #sidenav mode="over" (keydown.escape)="sidenav.close()" disableClose>
     <div class="search-container">
@@ -9,6 +14,9 @@
       </mat-form-field>
     </div>
   </mat-sidenav>
+
+
+
 
   <mat-sidenav-content class = "sticky-note-container">
     <p><button mat-button (click)="sidenav.open()">Open</button></p>
@@ -35,3 +43,5 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+

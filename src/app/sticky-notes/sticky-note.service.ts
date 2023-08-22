@@ -13,7 +13,7 @@ export class StickyNoteService {
 
 
   createStickyNote(note: any, boardId: number): Observable<any> {
-    const url = `${this.apiUrl}/${boardId}/note`;
+    const url = `${this.apiUrl}/${boardId}/note/`;
     return this.http.post<any>(url, note);
   }
 

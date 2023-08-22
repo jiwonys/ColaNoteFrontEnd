@@ -23,6 +23,7 @@ export class StickyNotesComponent implements OnInit {
   noteY : number = 0;
   mouseClickX: number = 0;
   mouseClickY: number = 0;
+  // change hardcoded board 1
   board_id: number = 1;
 
 
@@ -47,16 +48,19 @@ export class StickyNotesComponent implements OnInit {
       title: this.title,
       info: this.info,
 
-      xaxis: 0, // Default x-axis position
-      yaxis: 0, // Default y-axis position
+      xaxis: 50, // Default x-axis position
+      yaxis: 50, // Default y-axis position
     };
 
+
+    // change hardcoded board 1
     this.stickyNoteService.createStickyNote(newNote, 1).subscribe((createdNote) => {
       this.stickyNotes.push(createdNote);
     });
   }
 
   updateStickyNote(note: any ) {
+      // change hardcoded board 1
     this.stickyNoteService.updateStickyNote(note,1 ,note.id).subscribe(() => {
     console.log("successful");
     });
@@ -111,7 +115,26 @@ export class StickyNotesComponent implements OnInit {
            this.stickyNotes.splice(index, 1);
          }
          });
+    }
 
+    createNote() {
+    alert("made it");
+
+       const newNote = {
+         title: "test12345",
+         info: "hey",
+         xaxis : 100,
+         yaxis : 133,
+
+       };
+
+       console.log(newNote);
+
+       // change hardcoded board 1
+       this.stickyNoteService.createStickyNote(newNote, 1).subscribe((createdNote) => {
+         this.stickyNotes.push(createdNote);
+         alert("pushed");
+       });
     }
 
 

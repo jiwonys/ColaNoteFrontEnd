@@ -15,3 +15,12 @@
   width:300px;
 
 }
+
+
+.createButton {
+  display: grid;
+  max-width: 2vw !important;
+  min-width: 2vw !important;
+  color : royalblue;
+}
+
