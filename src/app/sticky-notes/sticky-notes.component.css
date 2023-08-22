@@ -1,17 +1,7 @@
-.sticky-note {
-  position : absolute;
-  border: 1px solid #ccc;
-}
 
-
-.sticky-note-container {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  position: relative;
-}
-
-.mat-sidenav {
-  width:300px;
-
+.delete-button {
+  align-self: flex-end; /* Position delete button to the end (right) of the container */
+  background: none;
+  border: none;
+  cursor: pointer;
 }

@@ -1,2 +1,35 @@
-<app-sticky-notes></app-sticky-notes>
+<mat-sidenav-container class="side-nav-container"   (backdropClick)="sidenav.close()">
+  <mat-sidenav #sidenav mode="over" (keydown.escape)="sidenav.close()" disableClose>
+    <div class="search-container">
+      <mat-form-field>
+        <input matInput placeholder="Search">
+        <button mat-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </mat-sidenav>
 
+  <mat-sidenav-content class = "sticky-note-container">
+    <button mat-button (click)="sidenav.open()">Open</button>
+    <button mat-button class = "add-button"><mat-icon>add_box</mat-icon></button>
+    <div>
+      <div>
+        <app-sticky-notes
+          *ngFor="let note of stickyNotes"
+          [note]="note"
+          (positionChange)="onPositionChange($event, note)"
+          (delete)="delete(note)"
+          (stickyNoteUpdate)="updateStickyNote($event)"
+          (stickyNoteDelete)="delete($event)"
+          class="sticky-note"
+          cdkDragBoundary=".sticky-note-container"
+          cdkDrag
+          [ngStyle]="{ 'top.px': note.yaxis, 'left.px': note.xaxis }"
+          (cdkDragStarted)="positionStartChange($event, note)"
+          (cdkDragEnded)="onPositionChange($event, note)"
+        ></app-sticky-notes>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
