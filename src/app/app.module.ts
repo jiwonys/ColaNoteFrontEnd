@@ -19,6 +19,8 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RegisterComponent,
     LandingComponent,
     StickyNotesComponent,
-    BoardComponent
+    BoardComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [
   {

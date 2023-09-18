@@ -22,12 +22,6 @@
   right:0;
 }
 
-.board-name{
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
 
 .board-container{
   margin: 0;
@@ -36,7 +30,23 @@
   position: relative;
 }
 
-.tool-bar{
-  width: 100wv;
-  height: 50px;
+
+.tool-bar {
+  display: flex;
+  justify-content: space-between; /* This places the profile-button on the right */
+  align-items: center; /* This centers the boardName vertically */
+}
+
+.toolbar-row {
+  width: 100%; /* Makes sure the row spans the entire toolbar width */
+}
+
+.board-name {
+  flex: 1; /* Allows the boardName to take available space in the middle */
+  text-align: center; /* Centers the text horizontally */
+}
+
+.spacer {
+  flex: 2; /* Creates a flexible space between boardName and profile-button */
+  /* You can adjust the flex value to control the space */
 }

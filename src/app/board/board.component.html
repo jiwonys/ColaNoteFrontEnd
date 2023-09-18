@@ -1,27 +1,33 @@
+<mat-toolbar color="primary" class = "tool-bar">
+  <mat-toolbar-row>
+    <span class = "board-name" [textContent] = "boardName"></span>
+    <button mat-icon-button class="profile-button" aria-label="profile-button">
+      <mat-icon>circle</mat-icon>
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <mat-sidenav-container class="side-nav-container"   (backdropClick)="sidenav.close()">
+
   <mat-sidenav #sidenav mode="over" (keydown.escape)="sidenav.close()" disableClose>
-    <div class="search-container">
-        <button mat-button matSuffix>
-          <mat-icon>search</mat-icon>
-        </button>
-    </div>
+
+    <button mat-button [matMenuTriggerFor]="menu">Switch to another board</button>
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item></button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
   </mat-sidenav>
 
   <mat-sidenav-content class = "board-container">
-
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" (click)="sidenav.open()" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
 <!--    <button mat-button (click)="sidenav.open()">Open</button>-->
 <!--    <button mat-button class = "add-button"><mat-icon>add_box</mat-icon></button>-->
-    <mat-toolbar color="primary" class = "tool-bar">
-      <mat-toolbar-row>
 
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" (click)="sidenav.open()" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class = "board-name">{{boardName}}</span>
-
-      </mat-toolbar-row>
-    </mat-toolbar>
 
     <div class = "sticky-note-container" >
       <div>
