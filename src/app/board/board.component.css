@@ -1,7 +1,7 @@
 .sticky-note-container {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 93vh;
   position: relative;
 }
 
@@ -22,3 +22,21 @@
   right:0;
 }
 
+.board-name{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-container{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+}
+
+.tool-bar{
+  width: 100wv;
+  height: 50px;
+}

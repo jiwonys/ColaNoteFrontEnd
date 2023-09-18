@@ -8,6 +8,7 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BoardService } from './board.service'
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-board',
@@ -26,6 +27,7 @@ export class BoardComponent implements OnInit{
   initialNoteY: number = 0;
   board_id: number = 1;
   noteCopy : any;
+  boardName: any;
   constructor(private boardService: BoardService) { }
 
 
@@ -35,6 +37,7 @@ export class BoardComponent implements OnInit{
 
   loadStickyNotes() {
       this.boardService.getStickyNotes(this.board_id).subscribe((board) => {
+        this.boardName = board.name;
         this.stickyNotes = board.notes;
         console.log(this.stickyNotes);
       });
@@ -59,6 +62,7 @@ export class BoardComponent implements OnInit{
       console.log("successful");
       });
     }
+
     positionStartChange(event:any, note:any){
       this.initialNoteX = note.xaxis;
       this.initialNoteY = note.yaxis;
