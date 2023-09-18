@@ -11,20 +11,13 @@ export class StickyNoteService {
 
   constructor(private http: HttpClient) { }
 
-
-  createStickyNote(note: any, boardId: number): Observable<any> {
-    const url = `${this.apiUrl}/${boardId}/note`;
-    return this.http.post<any>(url, note);
-  }
-
   updateStickyNote(note: any, boardId: number, noteId: number): Observable<any> {
     const url = `${this.apiUrl}/${boardId}/note/${noteId}`;
     return this.http.put<any>(url, note);
   }
 
-  getStickyNotes(boardId: number): Observable<any> {
-    const url = 'http://localhost:8080/api/v1/boards/getboardbyid/'+ boardId;
-    return this.http.get<any>(url);
+  deleteNote(boardId: number, noteId:number): Observable<any> {
+    const url = `${this.apiUrl}/${boardId}/note/${noteId}`;
+    return this.http.delete<any>(url);
   }
 }
-

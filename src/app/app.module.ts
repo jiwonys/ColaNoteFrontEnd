@@ -16,6 +16,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { AuthInterceptor } from './login/auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { MatSidenavModule} from '@angular/material/sidenav';
     DragDropModule,
     MatIconModule,
     MatSidenavModule,
-
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
   ],
   providers: [
   {

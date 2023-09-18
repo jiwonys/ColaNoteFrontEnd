@@ -1,29 +1,16 @@
-<mat-sidenav-container class="side-nav-container">
-  <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
-    <button mat-button (click)="sidenav.close()">Toggle</button>
-  </mat-sidenav>
 
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">Open</button></p>
-
-    <div class="sticky-note-container">
-      <div *ngFor="let note of stickyNotes" class="sticky-note" cdkDragBoundary=".sticky-note-container" cdkDrag
-           [ngStyle]="{ 'top.px': note.yaxis, 'left.px': note.xaxis }"
-           (cdkDragStarted)="positionStartChange($event, note)"
-           (cdkDragEnded)="onPositionChange($event, note)">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title class="title">
-              <input type="text" [(ngModel)]="note.title" (blur)="updateStickyNote(note)">
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="info">
-            <p>
-              <textarea [(ngModel)]="note.info" (blur)="updateStickyNote(note)"></textarea>
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div>
+  <button mat-button (click)="deleteNoteInParent(note)" class = "delete-button"><mat-icon>delete</mat-icon></button>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">
+        <input type="text" [(ngModel)]="note.title" (blur)="updateStickyNoteInParent(note)">
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="info">
+      <p>
+        <textarea [(ngModel)]="note.info" (blur)="updateStickyNoteInParent(note)"></textarea>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
