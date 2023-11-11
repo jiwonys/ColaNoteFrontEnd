@@ -1,0 +1,59 @@
+.login-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  text-align: left; /* Align text to the left */
+  left: 50%;
+  top: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.center {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-family: 'Baloo', cursive;
+  font-size: 30px;
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Adjust the spacing between form groups */
+}
+
+label {
+  display: block; /* Display labels as blocks to have them on new lines */
+  margin-bottom: 5px; /* Add some space between labels and inputs */
+}
+
+input {
+  width: 100%; /* Make the input boxes take up 100% of the available width */
+  padding: 8px; /* Add padding for a better appearance */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+}
+
+button {
+  padding: 10px 20px; /* Add padding to the button for a better appearance */
+  font-size: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Baloo', cursive;
+}
+
+.mat-mdc-raised-button.loginButton {
+  background-color: royalblue; /* Replace with your desired background color */
+  color: white; /* Replace with your desired text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: px;
+  cursor: pointer;
+
+}

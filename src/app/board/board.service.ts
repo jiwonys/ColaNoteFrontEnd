@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class BoardService {
-  private apiUrl = `http://localhost:8080/api/v1/boards`;
+  private apiUrl = `http://localhost:8080/api/v1/board`;
   private token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) { }
@@ -23,7 +23,7 @@ export class BoardService {
     }
 
     getStickyNotes(boardId: number): Observable<any> {
-      const url = 'http://localhost:8080/api/v1/boards/getboardbyid/'+ boardId;
+      const url = 'http://localhost:8080/api/v1/board/'+ boardId;
       return this.http.get<any>(url);
     }
 

@@ -1,4 +1,7 @@
+<link href="https://fonts.googleapis.com/css2?family=Baloo&display=swap" rel="stylesheet">
+
 <div class="login-container">
+  <div class = "center">
   <h2>Login</h2>
   <form (ngSubmit)="login()">
     <div class="form-group">
@@ -9,6 +12,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" [(ngModel)]="password" required>
     </div>
-    <button type="submit">Login</button>
+    <button mat-raised-button class = "loginButton" type="submit">Login</button>
   </form>
+</div>
 </div>
