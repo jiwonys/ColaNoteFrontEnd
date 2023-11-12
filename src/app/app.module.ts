@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatInputModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTooltipModule,
   ],
   providers: [
     {

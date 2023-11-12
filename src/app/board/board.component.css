@@ -13,7 +13,11 @@
 .sticky-note {
   position : absolute;
   border: 1px solid #ccc;
+}
 
+.board-id-field {
+  margin-top: 20px;
+  width : 310px;
 }
 
 .add-button{
@@ -22,31 +26,46 @@
   right:0;
 }
 
+.boardid{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Baloo', cursive;
+}
+
 
 .board-container{
   margin: 0;
   padding: 0;
   height: 100vh;
   position: relative;
+  background-color: white;
 }
 
 
 .tool-bar {
   display: flex;
-  justify-content: space-between; /* This places the profile-button on the right */
-  align-items: center; /* This centers the boardName vertically */
-}
-
-.toolbar-row {
-  width: 100%; /* Makes sure the row spans the entire toolbar width */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .board-name {
-  flex: 1; /* Allows the boardName to take available space in the middle */
-  text-align: center; /* Centers the text horizontally */
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.spacer {
-  flex: 2; /* Creates a flexible space between boardName and profile-button */
-  /* You can adjust the flex value to control the space */
+.profile-button {
+  position: fixed;
+  left : 100%;
+  transform: translateX(-200%);
 }
+
+.menu{
+  top: 90%;
+  left: 20px;
+  font-size: 24px;
+}
+
+

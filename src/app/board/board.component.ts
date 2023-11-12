@@ -71,35 +71,37 @@ export class BoardComponent implements OnInit{
     }
 
     onPositionChange(event: any, note: any) {
-    //console.log(event);
         const distance = event.distance;
-            const stickyNoteWidth = 200; // The width of your sticky note
-            const stickyNoteHeight = 100; // The height of your sticky note
+        const stickyNoteWidth = 200; // The width of your sticky note
+        const stickyNoteHeight = 100; // The height of your sticky note
 
-            // Calculate the new x and y positions based on the mouse position
-            const newX = distance.x;
-            const newY = distance.y;
+        // Calculate the new x and y positions based on the mouse position
+        const newX = distance.x;
+        const newY = distance.y;
 
-            // Update the noteCopy object with the new position
-            this.noteCopy = { ...note };
+        // Update the note object with the new position
+        if (newX + this.initialNoteX < 0) {
+            note.xaxis = 0;
+        } else {
+            note.xaxis = newX + this.initialNoteX;
+        }
 
-            if(newX + this.initialNoteX < 0) {
-              this.noteCopy.xaxis = 0;
-            }else{
-              this.noteCopy.xaxis = (newX + this.initialNoteX) ;
+        if (newY + this.initialNoteY < 0) {
+            note.yaxis = 0;
+        } else {
+            note.yaxis = newY + this.initialNoteY;
+        }
 
-            }
+        // Update the stickyNotes array with the modified note
+        const index = this.stickyNotes.findIndex(stickyNote => stickyNote.id === note.id);
+        if (index !== -1) {
+            this.stickyNotes[index] = { ...note };
+        }
 
-            if(newY + this.initialNoteY < 0) {
-              this.noteCopy.yaxis = 0;
-            }else{
-              this.noteCopy.yaxis = (newY + this.initialNoteY) ;
-
-            }
-
-
-            this.updateStickyNote(this.noteCopy); // Update the sticky note position in the backend
+        // Update the sticky note position in the backend
+        this.updateStickyNote(note);
     }
+
 
       delete(note: any) {
         this.boardService.deleteNote(this.board_id, note.id).subscribe(() => {
