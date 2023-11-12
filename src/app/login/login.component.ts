@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  private apiUrl = environment.apiurl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login() {
     const body = { email: this.email, password: this.password };
-    this.http.post('http://localhost:8080/api/v1/auth/authenticate', body)
+    this.http.post(`${this.apiUrl}` + '/api/v1/auth/authenticate', body)
       .subscribe((response: any) => {
         // Assuming the API returns a token upon successful authentication
         const token = response.token;

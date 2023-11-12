@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,8 @@ export class RegisterComponent {
   lastName: string = '';
   email: string = '';
   password: string = '';
+  private apiUrl = environment.apiurl;
+
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,7 +25,7 @@ export class RegisterComponent {
       email: this.email,
       password: this.password
     };
-    this.http.post('http://localhost:8080/api/v1/auth/register', body)
+    this.http.post(`${this.apiUrl}` + '/api/v1/auth/register', body)
       .subscribe(() => {
       alert("Registeration Successful!")
         // Registration successful, redirect to login page
