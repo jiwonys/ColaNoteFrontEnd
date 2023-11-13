@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BoardService } from './board.service'
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDialog } from '@angular/material/dialog';
+import { NewBoardDialogComponent } from '../new-board-dialog/new-board-dialog.component';
 
 @Component({
   selector: 'app-board',
@@ -28,7 +30,7 @@ export class BoardComponent implements OnInit{
   board_id: number = 1;
   noteCopy : any;
   boardName: any;
-  constructor(private boardService: BoardService) { }
+  constructor(private boardService: BoardService, public dialog: MatDialog) { }
 
 
   ngOnInit() {
@@ -45,21 +47,18 @@ export class BoardComponent implements OnInit{
 
   createStickyNote() {
       const newNote = {
-        id : this.id,
-        title: this.title,
-        info: this.info,
-        xaxis: 0,
-        yaxis: 0,
+        title: "",
+        info: "",
       };
 
-      this.boardService.createStickyNote(newNote, 1).subscribe((createdNote) => {
-        this.stickyNotes.push(createdNote);
+      this.boardService.createStickyNote(newNote, this.board_id).subscribe((response: String) => {
+        console.log("created a new sticky");
+        this.loadStickyNotes();
       });
     }
 
     updateStickyNote(note: any ) {
-      this.boardService.updateStickyNote(note,1 ,note.id).subscribe(() => {
-      console.log("successful");
+      this.boardService.updateStickyNote(note, this.board_id ,note.id).subscribe(() => {
       });
     }
 
@@ -109,7 +108,27 @@ export class BoardComponent implements OnInit{
            });
 
       }
+    createBoard(newBoardName : string){
+        const newBoard = {
+          name: newBoardName,
+        };
+        console.log("creating board");
+        this.boardService.createBoard(newBoard, this.board_id).subscribe((createdBoard) => {
+          this.board_id = createdBoard.id;
+          this.loadStickyNotes();
+        });
+    }
 
+  openNewBoardDialog(): void {
+    const dialogRef = this.dialog.open(NewBoardDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Board name:', result);
+        this.createBoard(result);
+      }
+    });
+  }
 
 }
 

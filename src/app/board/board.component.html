@@ -41,8 +41,8 @@
         <mat-icon class="big-icon">add</mat-icon>
       </button>
       <mat-menu #menu="matMenu" matIcon="add">
-        <button mat-menu-item>Create a New Board</button>
-        <button mat-menu-item>Create a New Sticky Note</button>
+        <button mat-menu-item (click)="openNewBoardDialog()">Create a New Board</button>
+        <button mat-menu-item (click)="createStickyNote()">Create a New Sticky Note</button>
       </mat-menu>
 
     </div>

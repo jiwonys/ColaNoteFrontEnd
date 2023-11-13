@@ -1,16 +1,11 @@
-
-<div>
-  <button mat-button (click)="deleteNoteInParent(note)" class = "delete-button"><mat-icon>delete</mat-icon></button>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title class="title">
-        <input type="text" [(ngModel)]="note.title" (blur)="updateStickyNoteInParent(note)">
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="info">
-      <p>
-        <textarea [(ngModel)]="note.info" (blur)="updateStickyNoteInParent(note)"></textarea>
-      </p>
-    </mat-card-content>
-  </mat-card>
+<div class="sticky-note">
+  <mat-card-header>
+    <input type="text" [(ngModel)]="note.title" placeholder="Title" class="title-input" (blur)="updateStickyNoteInParent(note)">
+    <button mat-button (click)="deleteNoteInParent(note)" class="delete-button">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content class="info">
+    <textarea [(ngModel)]="note.info" placeholder="Enter your note..." class="info-textarea" (blur)="updateStickyNoteInParent(note)"></textarea>
+  </mat-card-content>
 </div>

@@ -1,7 +1,46 @@
+.sticky-note {
+  display: flex;
+  flex-direction: column;
+  width: 250px; /* Adjust the maximum width as needed */
+  background-color: #fffad6; /* Yellow color for the sticky note */
+  border: 2px solid #ffd700; /* Darker yellow border */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #fffad6; /* Match the sticky note color */
+}
 
 .delete-button {
-  align-self: flex-end; /* Position delete button to the end (right) of the container */
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.title-input {
+  border: none;
+  font-size: 18px; /* Adjust font size as needed */
+  font-weight: bold;
+  width: calc(100% - 50px); /* Adjust width and padding as needed */
+  text-align: center; /* Align title to the center */
+  margin-top: 10px; /* Add margin to create space from the top */
+  outline: none;
+  background-color: #fffad6; /* Match the sticky note color */
+}
+
+
+.info-textarea {
+  border: none;
+  width: calc(100% - 20px); /* Adjust width and padding as needed */
+  height: 150px; /* Adjust height as needed */
+  padding: 10px; /* Adjust padding as needed */
+  background-color: #fffad6; /* Match the sticky note color */
+  resize: none;
+  overflow: hidden;
+  outline: none;
 }

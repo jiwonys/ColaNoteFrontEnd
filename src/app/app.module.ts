@@ -24,6 +24,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AboutmeComponent } from './aboutme/aboutme.component';
+import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
     StickyNotesComponent,
     BoardComponent,
     SidenavComponent,
-    AboutmeComponent
+    AboutmeComponent,
+    NewBoardDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
     MatToolbarModule,
     MatMenuModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
   providers: [
     {

@@ -15,8 +15,10 @@ export class BoardService {
 
     createStickyNote(note: any, boardId: number): Observable<any> {
       const url = `${this.apiUrl}/${boardId}/note`;
-      return this.http.post<any>(url, note);
+      // Set response type to 'text' to handle plain text responses
+      return this.http.post(url, note, { responseType: 'text' });
     }
+
 
     updateStickyNote(note: any, boardId: number, noteId: number): Observable<any> {
       const url = `${this.apiUrl}/${boardId}/note/${noteId}`;
@@ -32,6 +34,12 @@ export class BoardService {
       const url = `${this.apiUrl}/${boardId}/note/${noteId}`;
       return this.http.delete<any>(url);
     }
-   }
+
+   createBoard(newBoard: any, boardId: number): Observable<any> {
+      const url = this.apiUrl;
+      return this.http.post<any>(url, newBoard);
+  }
+
+}
 
 
