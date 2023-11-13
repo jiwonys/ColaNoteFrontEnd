@@ -23,10 +23,8 @@ export class LandingComponent implements AfterViewInit {
       this.renderer.setStyle(square, 'left', `${Math.random() * 100}vw`);
       this.renderer.setStyle(square, 'animation-duration', `${Math.random() * 2 + 1}s`);
 
-      // Set random initial color
       const randomColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
       this.renderer.setStyle(square, 'background-color', randomColor);
-
       this.renderer.appendChild(container, square);
     }
 

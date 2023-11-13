@@ -23,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LandingComponent,
     StickyNotesComponent,
     BoardComponent,
-    SidenavComponent
+    SidenavComponent,
+    AboutmeComponent
   ],
   imports: [
     BrowserModule,

@@ -48,8 +48,8 @@ export class BoardComponent implements OnInit{
         id : this.id,
         title: this.title,
         info: this.info,
-        xaxis: 0, // Default x-axis position
-        yaxis: 0, // Default y-axis position
+        xaxis: 0,
+        yaxis: 0,
       };
 
       this.boardService.createStickyNote(newNote, 1).subscribe((createdNote) => {
@@ -72,14 +72,12 @@ export class BoardComponent implements OnInit{
 
     onPositionChange(event: any, note: any) {
         const distance = event.distance;
-        const stickyNoteWidth = 200; // The width of your sticky note
-        const stickyNoteHeight = 100; // The height of your sticky note
+        const stickyNoteWidth = 200;
+        const stickyNoteHeight = 100;
 
-        // Calculate the new x and y positions based on the mouse position
         const newX = distance.x;
         const newY = distance.y;
 
-        // Update the note object with the new position
         if (newX + this.initialNoteX < 0) {
             note.xaxis = 0;
         } else {
@@ -92,13 +90,11 @@ export class BoardComponent implements OnInit{
             note.yaxis = newY + this.initialNoteY;
         }
 
-        // Update the stickyNotes array with the modified note
         const index = this.stickyNotes.findIndex(stickyNote => stickyNote.id === note.id);
         if (index !== -1) {
             this.stickyNotes[index] = { ...note };
         }
 
-        // Update the sticky note position in the backend
         this.updateStickyNote(note);
     }
 
