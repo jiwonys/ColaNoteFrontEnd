@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'board', component: BoardComponent},
   { path: 'aboutme', component: AboutmeComponent},
+  { path: 'board/:id', component: BoardComponent },
+
   // Add more routes for editing, deleting, or any additional functionality
 ];
 

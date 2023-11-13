@@ -57,3 +57,13 @@ button {
   cursor: pointer;
 
 }
+
+.registerButton:disabled {
+  background-color: grey;
+  color: white;
+}
+
+.registerButton:enabled {
+  background-color: #007bff; /* Your original blue color */
+  color: white; /* Change text color to improve contrast */
+}
