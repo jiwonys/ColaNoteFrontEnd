@@ -35,10 +35,21 @@ export class BoardService {
       return this.http.delete<any>(url);
     }
 
-   createBoard(newBoard: any, boardId: number): Observable<any> {
+    createBoard(newBoard: any): Observable<any> {
       const url = this.apiUrl;
       return this.http.post<any>(url, newBoard);
-  }
+    }
+
+    addBoardToUser(boardId: number): Observable<any> {
+        const url = environment.apiurl + '/api/v1/user/board/' + boardId;
+        return this.http.post<any>(url, null);
+    }
+
+    getBoards(): Observable<any>{
+        const url = environment.apiurl + '/api/v1/user';
+        return this.http.get<any>(url);
+
+    }
 
 }
 

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router} from '@angular/router';
 import { BoardService } from './board.service';
 import { NewBoardDialogComponent } from '../new-board-dialog/new-board-dialog.component';
+import { MyBoardDialogComponent } from '../my-board-dialog/my-board-dialog.component';
 
 @Component({
   selector: 'app-board',
@@ -101,10 +102,24 @@ export class BoardComponent implements OnInit {
       name: newBoardName,
     };
     console.log("creating board");
-    this.boardService.createBoard(newBoard, this.board_id).subscribe((createdBoard: any) => {
+    this.boardService.createBoard(newBoard).subscribe((createdBoard: any) => {
       this.board_id = createdBoard.id;
       this.loadStickyNotes();
     });
+  }
+
+
+
+
+  addBoardToUser(){
+    this.boardService.addBoardToUser(this.board_id).subscribe(
+      (result) => {
+        alert("This Board has been added to your list");
+      },
+      (error) => {
+        alert("This board is already in your boards!");
+      }
+    );
   }
 
   openNewBoardDialog(): void {
@@ -117,4 +132,30 @@ export class BoardComponent implements OnInit {
       }
     });
   }
+
+
+   openMyBoardDialog(): void {
+       this.boardService.getBoards().subscribe(
+         (boards: any[]) => {
+           const simplifiedBoards = boards.map(board => ({
+             id: board.id,
+             name: board.name
+           }));
+
+           this.dialog.open(MyBoardDialogComponent, {
+             width: '600px',
+             data: simplifiedBoards
+           }).afterClosed().subscribe((selectedBoardId: number) => {
+             if (selectedBoardId) {
+               // Navigate to the selected board
+               this.router.navigate(['/board', selectedBoardId]);
+             }
+           });
+         },
+         (error) => {
+           console.error('Error fetching boards:', error);
+         }
+       );
+     }
+
 }

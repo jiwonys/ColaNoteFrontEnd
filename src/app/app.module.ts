@@ -24,8 +24,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AboutmeComponent } from './aboutme/aboutme.component';
-import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NewBoardDialogComponent } from './new-board-dialog/new-board-dialog.component';
+import { MyBoardDialogComponent } from './my-board-dialog/my-board-dialog.component';
+import { MatTableModule } from '@angular/material/table'; // Import MatTableModule
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidenavComponent,
     AboutmeComponent,
     NewBoardDialogComponent,
+    MyBoardDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+    MatTableModule,
   ],
   providers: [
     {

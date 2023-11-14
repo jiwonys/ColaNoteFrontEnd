@@ -11,8 +11,11 @@
       <mat-icon>send</mat-icon>
     </button>
     <span class = "board-name" [textContent] = "boardName"></span>
-    <button mat-icon-button class="profile-button" aria-label="profile-button">
-      <mat-icon>circle</mat-icon>
+    <button mat-icon-button class="profile-button" aria-label="profile-button" (click)="openMyBoardDialog()" matTooltip="My boards">
+      <mat-icon>view_list</mat-icon>
+    </button>
+    <button mat-icon-button class="heart-button" aria-label="heart-button" (click)="addBoardToUser()" matTooltip="Add This Board to My boards!">
+      <mat-icon>favorite</mat-icon>
     </button>
 
   </mat-toolbar-row>
