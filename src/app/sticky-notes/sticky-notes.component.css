@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 250px; /* Adjust the maximum width as needed */
-  background-color: #fffad6; /* Yellow color for the sticky note */
-  border: 2px solid #ffd700; /* Darker yellow border */
+  background-color: #f7f7e3; /* Yellow color for the sticky note */
+  border: 2px solid #f7f7e3; /* Darker yellow border */
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #fffad6; /* Match the sticky note color */
+  background-color:#f7f7e3; /* Match the sticky note color */
 }
 
 .delete-button {
@@ -30,7 +30,7 @@
   text-align: center; /* Align title to the center */
   margin-top: 10px; /* Add margin to create space from the top */
   outline: none;
-  background-color: #fffad6; /* Match the sticky note color */
+  background-color: #f7f7e3; /* Match the sticky note color */
 }
 
 
@@ -39,7 +39,7 @@
   width: calc(100% - 20px); /* Adjust width and padding as needed */
   height: 150px; /* Adjust height as needed */
   padding: 10px; /* Adjust padding as needed */
-  background-color: #fffad6; /* Match the sticky note color */
+  background-color: #f7f7e3; /* Match the sticky note color */
   resize: none;
   overflow: hidden;
   outline: none;

@@ -5,14 +5,10 @@
   position: relative;
 }
 
-.mat-sidenav {
-  width:300px;
-}
-
 
 .sticky-note {
   position : absolute;
-  border: 1px solid #ccc;
+  border: 1px #f7f7e3;
 }
 
 .board-id-field {
@@ -33,13 +29,16 @@
   font-family: 'Baloo', cursive;
 }
 
+.sendtoid{
+  color: #e7c7a7;
+}
 
 .board-container{
   margin: 0;
   padding: 0;
   height: 100vh;
   position: relative;
-  background-color: white;
+  background-color: #f7fafd;
 }
 
 
@@ -47,12 +46,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #6b86d7;
+
 }
 
 .board-name {
   position: fixed;
   top: 15px;
   left: 50%;
+  font-family: 'Baloo', cursive;
   transform: translateX(-50%);
 }
 
@@ -68,6 +70,7 @@
   font-size: 24px;
 }
 
+
 .heart-button{
-  color: red;
+  color: #e7a7c7;
 }
